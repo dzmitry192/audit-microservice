@@ -1,5 +1,10 @@
 package com.innowise.auditmicroservice.security.filter;
 
+import avro.UserDetailsRequest;
+import avro.UserDetailsResponse;
+import com.innowise.auditmicroservice.kafka.KafkaListeners;
+import com.innowise.auditmicroservice.kafka.KafkaProducers;
+import com.innowise.auditmicroservice.security.service.CustomUserDetails;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

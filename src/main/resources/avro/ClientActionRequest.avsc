@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "ClientActionRequest",
+  "namespace": "avro",
+  "fields": [
+    {
+      "name": "email",
+      "type": "string"
+    },
+    {
+      "name": "action",
+      "type": "string"
+    },
+    {
+      "name": "actionType",
+      "type": "string"
+    },
+    {
+      "name": "date",
+      "type": "long"
+    }
+  ]
+}
