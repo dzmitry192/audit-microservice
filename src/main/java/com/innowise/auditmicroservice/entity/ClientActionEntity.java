@@ -1,29 +1,30 @@
 package com.innowise.auditmicroservice.entity;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
-@Document(collation = "client_actions")
+@Document(collection = "client_actions")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class ClientActionEntity {
     @Id
     private String id;
     @Email
     private String email;
-    @NotBlank
     private String action;
-    @NotBlank
     private String actionType;
-    @NotNull
-    private Date date;
+    @DateTimeFormat(pattern = "yyyy:MM:dd HH:mm:ss.ms")
+    private LocalDateTime date;
+
+    public ClientActionEntity(String email, String action, String actionType, LocalDateTime date) {
+        this.email = email;
+        this.action = action;
+        this.actionType = actionType;
+        this.date = date;
+    }
 }
