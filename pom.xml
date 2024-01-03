@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>3.1.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.innowise</groupId>
@@ -21,6 +21,7 @@
         <spring.kafka.version>3.0.12</spring.kafka.version>
         <avro.version>1.11.1</avro.version>
         <confluent.version>7.5.1</confluent.version>
+        <eureka-client.version>4.0.1</eureka-client.version>
     </properties>
 
     <repositories>
@@ -88,6 +89,12 @@
             <groupId>io.confluent</groupId>
             <artifactId>kafka-schema-registry-client</artifactId>
             <version>${confluent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>${eureka-client.version}</version>
         </dependency>
 
         <dependency>
@@ -166,6 +173,10 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
